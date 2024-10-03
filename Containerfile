@@ -6,6 +6,7 @@ LABEL org.opencontainers.image.source https://github.com/bbusse/compost-sensor
 
 ARG ESPHOME_CFG
 ENV ARCH="x86_64" \
+    ESPHOME_CFG=${ESPHOME_CFG} \
     USER="build" \
     HA_API_PASSWORD="secret" \
     HA_OTA_PASSWORD="secret" \
