@@ -1,8 +1,10 @@
 ARG ESPHOME_BUILD_VERSION=latest
+ARG ESPHOME_CFG
 FROM ghcr.io/bbusse/esphome-build:${ESPHOME_BUILD_VERSION}
 LABEL maintainer="Björn Busse <bj.rn@baerlin.eu>"
 LABEL org.opencontainers.image.source https://github.com/bbusse/compost-sensor
 
+ARG ESPHOME_CFG
 ENV ARCH="x86_64" \
     USER="build" \
     HA_API_PASSWORD="secret" \
@@ -16,7 +18,7 @@ USER $USER
 
 RUN cd && ls -al && \
     . esphome/bin/activate && \
-    curl -O https://raw.githubusercontent.com/bbusse/esphome-cfg/main/compost-0.yaml && \
+    curl -O https://raw.githubusercontent.com/bbusse/esphome-cfg/main/${ESPHOME_CFG} && \
     echo "ha_api_password: $HA_API_PASSWORD" >> secrets.yaml && \
     echo "ha_ota_password: $HA_OTA_PASSWORD" >> secrets.yaml && \
     echo "wifi_ssid: $WIFI_SSID" >> secrets.yaml && \
@@ -28,4 +30,4 @@ RUN cd && ls -al && \
     pio boards && \
     pio upgrade &&\
     esphome version &&\
-    esphome compile compost-0.yaml
+    esphome compile ${ESPHOME_CFG}
