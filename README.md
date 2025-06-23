@@ -55,7 +55,7 @@ $ podman build . -t weather --build-arg-file=argfile.conf --build-arg ESPHOME_CF
 ```
 $ export VARIANT=compost-0
 $ podman run localhost/${VARIANT}
-$ podman cp $(podman ps | awk '/'${VARIANT}'/ {print $1}'):/home/build/.esphome/build/${VARIANT}/.pioenvs/${VARIANT}/firmware.bin .
+$ podman cp $(podman ps | awk '/'${VARIANT}'/ {print $1}'):/home/build/.esphome/build/${VARIANT}/.pioenvs/${VARIANT}/firmware-${VARIANT).bin .
 ```
 
 ### Build on Windows
@@ -90,3 +90,5 @@ $ esptool.py write_flash 0x10000 firmware.bin
 [BME280 Datasheet](https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/)  
 [DHT22/AM2302 Datasheet](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf)  
 [DS18B20 Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf)  
+[VEML6030](https://www.vishay.com/docs/84366/veml6030.pdf)  
+[SPH0645LM4H](https://www.knowles.com/docs/default-source/model-downloads/kas-700-0137-crawford-mic-on-flex-product-brief-rev29may19.pdf)
