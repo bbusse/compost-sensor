@@ -88,6 +88,7 @@ $ esptool.py write_flash 0x10000 firmware.bin
 ### Sensors
 [AS3935 Datasheet](https://github.com/sparkfun/SparkFun_AS3935_Lightning_Detector/blob/master/Documents/AS3935_Datasheet_EN_v2.pdf)  
 [BME280 Datasheet](https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/)  
+[BME680 Datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf)  
 [DHT22/AM2302 Datasheet](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf)  
 [DS18B20 Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf)  
 [VEML6030](https://www.vishay.com/docs/84366/veml6030.pdf)  
