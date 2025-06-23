@@ -1,2 +1,3 @@
 argfile.conf
-firmware.bin
+firmware-*.bin
+*.yaml
