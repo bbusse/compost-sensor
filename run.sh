@@ -23,6 +23,7 @@ error() {
     logger -p user.error -t "${script_name}" "$@"
 }
 
+# TODO: Use 'command -v'
 if [[ -z $(which podman) ]]; then
     if [[ -z $(which docker) ]]; then
         error "Could not find container executor."
@@ -48,3 +49,7 @@ ${executor} cp $(podman ps | awk '/'${VARIANT}'/ {print $1}' | tail -n1):${firmw
 
 log "Stopping container"
 ${executor} stop $(podman ps | awk '/'${VARIANT}'/ {print $1}' | tail -n1)
+
+log "Built firmware: ${target_firmware_file}"
+log "Connect your ESP32 and run 'esptool.py write_flash 0x10000 ${target_firmware_file}' to flash it to your device"
+log "Done!"
