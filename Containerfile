@@ -17,7 +17,6 @@ RUN cd && . esphome/bin/activate && \
     pio --version && \
     pio -h && \
     pio boards && \
-    pio upgrade && \
     esphome version
 
 # Copy config and inject secrets (invalidate cache only on config change)
